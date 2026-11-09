@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "repo": "https://github.com/Mr-sdn/ai-offline",
+  "ports": { "ui": 11480, "ollama": 11435, "agent": 11490 },
+  "downloads": {
+    "ollama": {
+      "version": "0.40.15",
+      "x64":   { "url": "https://github.com/ollama/ollama/releases/download/v0.40.15/ollama-windows-amd64.zip", "sha256": "9ca74a7ab66ec86870b1eecac7df160df08dc4e3a291ab5d2d59bcf9310221c6", "sizeMB": 1540 },
+      "arm64": { "url": "https://github.com/ollama/ollama/releases/download/v0.40.15/ollama-windows-arm64.zip", "sha256": "35ce5195b57496dbc9ecbaa6593807e6ac26cbb53cf1f8bb57ac58daafa58574", "sizeMB": 207 },
+      "rocm":  { "url": "https://github.com/ollama/ollama/releases/download/v0.40.15/ollama-windows-amd64-rocm.zip", "sha256": "2f5e81675329a5de2477a4a25823d55d5c3ead8d59522e92eac1664ab492faeb", "sizeMB": 246 }
+    },
+    "opencode": {
+      "version": "1.19.5",
+      "x64":          { "url": "https://github.com/anomalyco/opencode/releases/download/v1.19.5/opencode-windows-x64.zip", "sha256": "09a6e693157f0887e504f2cf4357a8cbddc5ead5d0dffb9a269dcc47c48640f5", "sizeMB": 78 },
+      "x64-baseline": { "url": "https://github.com/anomalyco/opencode/releases/download/v1.19.5/opencode-windows-x64-baseline.zip", "sha256": "e4dac5cd38a182a24e7b3e18853f01d08cdb137e50b3bd1397c1a89e54d28c63", "sizeMB": 77 },
+      "arm64":        { "url": "https://github.com/anomalyco/opencode/releases/download/v1.19.5/opencode-windows-arm64.zip", "sha256": "5d49139bd917511ff35a3c06065c9f47918346668f05ea020e778286f302fbb7", "sizeMB": 72 }
+    }
+  },
+  "models": [
+    { "id": "gemma4:e2b",      "name": "Gemma 4 E2B",  "sizeGB": 4.6,  "minRamGB": 0,  "ctx": 8192,  "speed": 5, "quality": 2, "tier": "light" },
+    { "id": "gemma4:e4b",      "name": "Gemma 4 E4B",  "sizeGB": 6.6,  "minRamGB": 12, "ctx": 16384, "speed": 4, "quality": 3, "tier": "balanced" },
+    { "id": "gemma4:26b",      "name": "Gemma 4 26B",  "sizeGB": 18.7, "minRamGB": 22, "ctx": 32768, "speed": 3, "quality": 4, "tier": "strong" },
+    { "id": "qwen3.6:35b-a3b", "name": "Qwen 3.6 35B", "sizeGB": 22.6, "minRamGB": 30, "ctx": 65536, "speed": 3, "quality": 5, "tier": "pro" }
+  ],
+  "extraModels": [
+    { "id": "llama3.2:3b",  "name": "Llama 3.2 3B",  "sizeGB": 2.0,  "minRamGB": 0,  "tier": "tiny" },
+    { "id": "qwen3.5:4b",   "name": "Qwen 3.5 4B",   "sizeGB": 3.3,  "minRamGB": 0,  "tier": "small" },
+    { "id": "qwen3.5:9b",   "name": "Qwen 3.5 9B",   "sizeGB": 6.6,  "minRamGB": 12, "tier": "mid" },
+    { "id": "gemma4:12b",   "name": "Gemma 4 12B",   "sizeGB": 8.0,  "minRamGB": 16, "tier": "mid" },
+    { "id": "qwen3.6:27b",  "name": "Qwen 3.6 27B",  "sizeGB": 17.8, "minRamGB": 24, "tier": "dense" }
+  ]
+}

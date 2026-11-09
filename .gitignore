@@ -1,0 +1,6 @@
+# Created by AI Offline at runtime (the engine, the models, chats and settings)
+/runtime/
+/models/
+/data/
+*.part
+*.tmp
