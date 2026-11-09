@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Offline</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="app.css">
+  <script src="vendor/marked.min.js" defer></script>
+  <script src="i18n.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div id="boot" class="boot"><img src="logo.svg" alt="" width="56" height="56"></div>
+
+  <!-- first-time setup -->
+  <main id="setup" class="setup" hidden></main>
+
+  <!-- the app -->
+  <div id="app" class="app" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="side-top">
+        <div class="brand"><img src="logo.svg" alt="" width="28" height="28"><span>AI Offline</span></div>
+        <button class="icon-btn only-narrow" id="closeSide" data-i18n-title="close"></button>
+      </div>
+      <button class="new-chat" id="newChat"><span class="ico" data-icon="plus"></span><span data-i18n="newChat"></span></button>
+      <label class="search"><span class="ico" data-icon="search"></span><input id="search" type="search" data-i18n-placeholder="searchChats"></label>
+      <nav class="chat-list" id="chatList"></nav>
+      <div class="side-bottom">
+        <button class="side-link" id="openModels"><span class="ico" data-icon="cube"></span><span data-i18n="models"></span></button>
+        <button class="side-link" id="openAgent"><span class="ico" data-icon="code"></span><span data-i18n="codingAgent"></span></button>
+        <button class="side-link" id="openSettings"><span class="ico" data-icon="gear"></span><span data-i18n="settings"></span></button>
+        <div class="offline-pill"><i></i><span data-i18n="offlinePill"></span></div>
+      </div>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <section class="main">
+      <header class="topbar">
+        <button class="icon-btn only-narrow" id="openSide"><span class="ico" data-icon="menu"></span></button>
+        <div class="model-picker">
+          <button class="model-btn" id="modelBtn"><span id="modelName"></span><span class="ico sm" data-icon="chevron"></span></button>
+          <div class="menu" id="modelMenu" hidden></div>
+        </div>
+        <button class="think-btn" id="thinkBtn" hidden><span class="ico sm" data-icon="brain"></span><span data-i18n="think"></span></button>
+        <div class="grow"></div>
+        <span class="engine-state" id="engineState" hidden></span>
+        <button class="icon-btn" id="newChatTop" data-i18n-title="newChat"><span class="ico" data-icon="edit"></span></button>
+      </header>
+
+      <div class="thread" id="thread">
+        <div class="thread-inner" id="messages"></div>
+      </div>
+
+      <footer class="composer-wrap">
+        <form class="composer" id="composer">
+          <div class="attachments" id="attachments" hidden></div>
+          <textarea id="input" rows="1" dir="auto" data-i18n-placeholder="placeholder"></textarea>
+          <div class="composer-row">
+            <button type="button" class="icon-btn" id="attachBtn" data-i18n-title="attach"><span class="ico" data-icon="clip"></span></button>
+            <input type="file" id="fileInput" multiple hidden>
+            <div class="grow"></div>
+            <button type="submit" class="send-btn" id="sendBtn" data-i18n-title="send"><span class="ico" data-icon="arrow"></span></button>
+          </div>
+        </form>
+        <p class="disclaimer" data-i18n="disclaimer"></p>
+      </footer>
+    </section>
+  </div>
+
+  <dialog id="modal"><div class="modal-body" id="modalBody"></div></dialog>
+  <div class="toasts" id="toasts"></div>
+</body>
+</html>
