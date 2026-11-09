@@ -1,0 +1,11 @@
+name: Idea / پیشنهاد
+description: Suggest a feature or an improvement.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea / پیشنهاد شما
+      description: What would you like AI Offline to do, and why would it help?
+    validations:
+      required: true

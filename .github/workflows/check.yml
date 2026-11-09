@@ -1,0 +1,29 @@
+# Checks that every script parses on Windows PowerShell 5.1 and the UI files are valid.
+name: Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: PowerShell scripts parse (Windows PowerShell 5.1)
+        shell: powershell
+        run: |
+          $bad = 0
+          foreach ($f in Get-ChildItem -Recurse -Filter *.ps1) {
+            $tokens = $null; $errs = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile($f.FullName, [ref]$tokens, [ref]$errs)
+            if ($errs.Count) { $bad++; $errs | ForEach-Object { Write-Host "$($f.Name):$($_.Extent.StartLineNumber) $($_.Message)" } }
+            if ([IO.File]::ReadAllText($f.FullName) -match '[^\x00-\x7F]') { $bad++; Write-Host "$($f.Name) has non-ASCII characters" }
+          }
+          if ($bad) { exit 1 }
+      - name: JavaScript and JSON are valid
+        shell: bash
+        run: |
+          node --check app/ui/app.js
+          node --check app/ui/i18n.js
+          node -e "for (const f of ['app/config.json','app/strings.json']) JSON.parse(require('fs').readFileSync(f,'utf8'))"

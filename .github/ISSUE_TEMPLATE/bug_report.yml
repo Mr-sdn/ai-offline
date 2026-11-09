@@ -1,0 +1,41 @@
+name: Something doesn't work / مشکل دارم
+description: Report a problem with AI Offline. Persian is fine too.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened? / چه اتفاقی افتاد؟
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: dropdown
+    id: step
+    attributes:
+      label: Where? / کجا؟
+      options:
+        - Setup (first run)
+        - Chat
+        - Models
+        - Coding agent
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: pc
+    attributes:
+      label: Your PC / مشخصات کامپیوتر
+      description: Windows version, RAM, graphics card
+      placeholder: Windows 11, 16 GB RAM, NVIDIA RTX 3060
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model / مدل
+      placeholder: gemma4:e4b
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / گزارش‌ها
+      description: Attach or paste the files in the `data\logs` folder (setup.log, server.log, ollama.log).
